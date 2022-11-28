@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallax with Pure CSS</title>
+    <link rel="stylesheet" href="parallax.css" />
+  </head>
+  <body>
+    <div class="parallax">
+      <div class="parallax__group">
+        <div class="parallax__layer parallax__layer--back"></div>
+        <div class="parallax__layer parallax__layer--base">
+          <h1>Foreground</h1>
+        </div>
+      </div>
+
+      <div class="parallax__group group1">
+        <div class="group">
+          <h1>This is a normal box</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="inputs">
+      <input type="checkbox" id="transform-enabled" />
+      <input type="range" id="angleslider" min="-100" max="100" />
+      <input type="range" id="xslider" min="-1000" max="1000" />
+      <input type="range" id="yslider" min="-1000" max="1000" />
+    </div>
+
+    <script src="/parallax.js"></script>
+  </body>
+</html>
