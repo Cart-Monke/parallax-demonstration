@@ -32,16 +32,21 @@
 }
 .parallax__layer--base {
   transform: translateZ(0);
-  background-color: rgba(188, 224, 255, 0.3);
 }
 
 /* The translation is how far back the layer goes. The scale is equal to (1 + (translateZ * -1) / perspective) */
 /* Perspective is defined on line 10 */
 
-.parallax__layer--back {
-  background-image: url(/images/amonguswave-removebg-preview.png);
+.parallax__layer--leaf {
+  background-image: url(/images/foreground.png);
   transform: translateZ(-2px) scale(3);
-  background-size: contain;
+  background-size: cover;
+}
+
+.parallax__layer--back {
+  background-image: url(/images/background.png);
+  transform: translateZ(-4px) scale(5);
+  background-size: cover;
 }
 
 h1 {
