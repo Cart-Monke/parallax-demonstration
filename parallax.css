@@ -11,6 +11,7 @@
   --x: 0px;
   --y: 0px;
   --transition-speed: 0s;
+  --text-color: #023020;
 }
 
 .parallax {
@@ -21,6 +22,7 @@
   background-image: url(/images/space.jpg);
   background-size: cover;
 }
+
 .parallax__layer {
   position: absolute;
   top: 0;
@@ -29,34 +31,6 @@
   left: 0;
 
   padding: 50vh 0;
-}
-.parallax__layer--base {
-  transform: translateZ(0);
-}
-
-/* The translation is how far back the layer goes. The scale is equal to (1 + (translateZ * -1) / perspective) */
-/* Perspective is defined on line 10 */
-
-.parallax__layer--leaf {
-  background-image: url(/images/foreground.png);
-  transform: translateZ(-2px) scale(3);
-  background-size: cover;
-}
-
-.parallax__layer--back {
-  background-image: url(/images/background.png);
-  transform: translateZ(-4px) scale(5);
-  background-size: cover;
-}
-
-h1 {
-  background-color: white;
-  padding: 1vh;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
 }
 
 .parallax__group {
@@ -67,8 +41,87 @@ h1 {
   transition: transform var(--transition-speed) ease;
 }
 
-.group1 {
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+
+/* The translation is how far back the layer goes. The scale is equal to (1 + (translateZ * -1) / perspective) */
+/* Perspective is defined on line 10 */
+
+.parallax__layer--leaf {
+  background-image: url(/images/foreground.png);
+  transform: translateZ(-1px) scale(2);
+  background-size: cover;
+}
+
+.parallax__layer--back {
+  background-image: url(/images/background.png);
+  transform: translateZ(-2px) scale(3.05);
+  background-size: cover;
+}
+
+h1 {
+  font-size: 6em;
+  color: var(--text-color);
+}
+
+h2 {
+  font-size: 3em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  margin-bottom: 5%;
+}
+
+p {
+  font-size: 1.5em;
+  line-height: 200%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: var(--text-color);
+}
+
+.parallax__group__hero h1 {
+  padding: 1vh;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: white;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+
+  transform: translate(0%, -50%);
+}
+
+.parallax__group__content {
   background-color: white;
+  height: fit-content;
+}
+
+.content__header {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+
+  text-align: center;
+  padding: 5% 0 4% 0;
+}
+
+.section {
+  width: 40%;
+  margin: auto;
+}
+
+.header__underline {
+  width: 80%;
+  height: 2px;
+  background-color: var(--text-color);
+  margin: auto;
+  margin-bottom: 4%;
+}
+
+.paragraph-header {
+  text-align: center;
 }
 
 .inputs {
