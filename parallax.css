@@ -1,3 +1,4 @@
+/* Base Components */
 * {
   margin: 0;
 }
@@ -14,51 +15,7 @@
   --text-color: #023020;
 }
 
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background-image: url(/images/space.jpg);
-  background-size: cover;
-}
-
-.parallax__layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  padding: 50vh 0;
-}
-
-.parallax__group {
-  position: relative;
-  height: 100vh;
-  transform-style: preserve-3d;
-  transform: translate3d(var(--x), 0, var(--y)) rotateY(var(--rotation));
-  transition: transform var(--transition-speed) ease;
-}
-
-.parallax__layer--base {
-  transform: translateZ(0);
-}
-
-/* The translation is how far back the layer goes. The scale is equal to (1 + (translateZ * -1) / perspective) */
-/* Perspective is defined on line 10 */
-
-.parallax__layer--leaf {
-  background-image: url(/images/foreground.png);
-  transform: translateZ(-1px) scale(2);
-  background-size: cover;
-}
-
-.parallax__layer--back {
-  background-image: url(/images/background.png);
-  transform: translateZ(-2px) scale(3.05);
-  background-size: cover;
-}
+/* HTML Tags */
 
 h1 {
   font-size: 6em;
@@ -80,6 +37,57 @@ p {
   color: var(--text-color);
 }
 
+/* Parallax (the thing that makes the cool effect) */
+
+.parallax {
+  perspective: 1px; /* This is what makes the effect work */
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-image: url(/images/space.jpg);
+  background-size: cover;
+}
+
+.parallax__layer {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding: 50vh 0;
+}
+
+.parallax__group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d; /* Specifies that all the different groups should render in 3d and not flat */
+  
+  transform: translate3d(var(--x), 0, var(--y)) rotateY(var(--rotation));
+  transition: transform var(--transition-speed) ease;
+}
+
+/* The translateZ is how far back the layer is from the front of the page. 
+   The scale property should be set to (1 + (translateZ * -1) / perspective) */
+/* Perspective is defined on line 10 */  
+
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+
+.parallax__layer--leaf {
+  background-image: url(/images/foreground.png);
+  transform: translateZ(-1px) scale(2);
+  background-size: cover;
+}
+
+.parallax__layer--back {
+  background-image: url(/images/background.png);
+  transform: translateZ(-2px) scale(3.05); /* Might have to make minor size adjustments */
+  background-size: cover;
+}
+
 .parallax__group__hero h1 {
   padding: 1vh;
   position: absolute;
@@ -93,9 +101,20 @@ p {
   transform: translate(0%, -50%);
 }
 
+/* Normal Webpage Content */
+
 .parallax__group__content {
   background-color: white;
   height: fit-content;
+
+  background-color: #fae6c8;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.section {
+  width: 40%;
+  margin: auto;
 }
 
 .content__header {
@@ -105,11 +124,6 @@ p {
 
   text-align: center;
   padding: 5% 0 4% 0;
-}
-
-.section {
-  width: 40%;
-  margin: auto;
 }
 
 .header__underline {
